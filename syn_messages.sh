@@ -6,15 +6,15 @@ script_dir=$(dirname $0)
 
 #用户登陆名称
 src_user='root'
-src_pwd=''
+src_pwd='root'
 dest_user='root'
-dest_pwd=''
+dest_pwd='root'
 
 #源数据库名称
-src_db_name='yanzhao-mis_development'
+src_db_name='yanzhao-mis_production'
 src_host='localhost'
 #目的数据库名称
-dest_db_name='il_yanzhao_r32_development'
+dest_db_name='il_yanzhao_production'
 dest_host='localhost'
 #源DNS
 src_base_dns="h=${src_host},P=13306,D=${src_db_name},u=${src_user},p=${src_pwd},A=utf8,t=base_public_messages"
