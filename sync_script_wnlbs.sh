@@ -13,7 +13,7 @@ dest_pwd='wnlbs'
 
 #源数据库名称
 src_db_name='unpn'
-src_host='120.194.14.6'
+src_host='120.194.14.2'
 #目的数据库名称
 dest_db_name='unpn'
 dest_host='localhost'
