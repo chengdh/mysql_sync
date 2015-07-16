@@ -35,7 +35,7 @@ syn_tables=(ep epstat alm gps)
 #883846810  |
 #1433069428 |
 #1433062061 |
-where="epid in ('883846810')"
+where="epid in ('883846809','883846810')"
 
 for t in ${syn_tables[@]}
 do
