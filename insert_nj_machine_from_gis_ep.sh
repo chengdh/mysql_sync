@@ -1,1 +1,1 @@
-mysql -uroot -proot -D antongdb < insert_nj_machine.sql
+mysql -uwnlbs -pwnlbs -D antongdb < insert_nj_machine.sql
