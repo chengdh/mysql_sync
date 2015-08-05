@@ -10,4 +10,4 @@ INSERT INTO  nj_repair_warn
 SELECT alm.id,m.id,epid,NOW(),reptime,gpstime,longitude,latitude,direction,speed,mileage,flags,NOW(),3,0 FROM nj_machine m,gis_alm alm
 WHERE m.gps_code = alm.epid
 AND alm.type=4
-AND alm.id NOT IN (SELECT gis_id FROM nj_oil_warn);
+AND alm.id NOT IN (SELECT gis_id FROM nj_repair_warn);
