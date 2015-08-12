@@ -22,7 +22,7 @@ src_base_dns="h=${src_host},D=${src_db_name},u=${src_user},p=${src_pwd},A=utf8"
 #目的DNS
 dest_base_dns="h=${dest_host},D=${dest_db_name},u=${dest_user},p=${dest_pwd},A=utf8"
 
-syn_tables=(gps_1507_14 gps_1508_14)
+syn_tables=(gps_1507_14 gps_1508_14 gps_1509_14 gps_1510_14 gps_1511_14 gps_1512_14)
 
 where="epid in ('883846809','883846810','883846809','883846810','883845579','883845588','883845586','883845582','883845584','883845581','883845585','883845587','883800820')"
 
