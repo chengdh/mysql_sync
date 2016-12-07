@@ -22,9 +22,9 @@ src_base_dns="h=${src_host},D=${src_db_name},u=${src_user},p=${src_pwd},A=utf8"
 #目的DNS
 dest_base_dns="h=${dest_host},D=${dest_db_name},u=${dest_user},p=${dest_pwd},A=utf8"
 
-syn_tables=(ep epstat alm gps)
+syn_tables_1=(ep epstat alm gps)
 
-for t in ${syn_tables[@]}
+for t in ${syn_tables_1[@]}
 do
     src_tbl=",t=${t}"
     desc_tbl=",t=gis_${t}"
@@ -39,4 +39,23 @@ do
         $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print  --where "${where}" --execute $src $dest
     fi
 done
+
+syn_tables_2=(gis_ep_photo gis_ep_upgrade gis_epdata)
+
+for t in ${syn_tables_2[@]}
+do
+    src_tbl=",t=${t}"
+    desc_tbl=",t=${t}"
+    src=$src_base_dns$src_tbl
+    dest=$dest_base_dns$dest_tbl
+    #同步基础数据
+    echo "同步表${t}"
+    if [ $debug = "true" ]
+    then
+        $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print --where "${where}"  $src $dest
+    else
+        $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print  --where "${where}" --execute $src $dest
+    fi
+done
+e
 echo "-----------------------------------------------运行结束-----------------------------------------------"
