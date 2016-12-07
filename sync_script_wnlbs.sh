@@ -6,16 +6,16 @@ macos="false"
 script_dir=$(dirname $0)
 
 #用户登陆名称
-src_user='wnlbs'
-src_pwd='wnlbs'
-dest_user='wnlbs'
-dest_pwd='wnlbs'
+src_user='root'
+src_pwd='123456'
+dest_user='root'
+dest_pwd='123456'
 
 #源数据库名称
 src_db_name='unpn'
-src_host='120.194.14.2'
+src_host='10.42.240.35'
 #目的数据库名称
-dest_db_name='unpn'
+dest_db_name='antongdb'
 dest_host='localhost'
 #源DNS
 src_base_dns="h=${src_host},D=${src_db_name},u=${src_user},p=${src_pwd},A=utf8"
@@ -24,15 +24,12 @@ dest_base_dns="h=${dest_host},D=${dest_db_name},u=${dest_user},p=${dest_pwd},A=u
 
 syn_tables=(ep epstat alm gps)
 
-#共有10台设备
-#883800820 是测试设备
-where="epid in ('883846809','883846810','883846809','883846810','883845579','883845588','883845586','883845582','883845584','883845581','883845585','883845587','883800820')"
-
 for t in ${syn_tables[@]}
 do
-    tbl=",t=${t}"
-    src=$src_base_dns$tbl
-    dest=$dest_base_dns$tbl
+    src_tbl=",t=${t}"
+    desc_tbl=",t=gis_${t}"
+    src=$src_base_dns$src_tbl
+    dest=$dest_base_dns$dest_tbl
     #同步基础数据
     echo "同步表${t}"
     if [ $debug = "true" ]
