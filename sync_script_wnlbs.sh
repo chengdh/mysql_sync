@@ -49,7 +49,7 @@ do
     src2=$src_base_dns$src_tbl2
     dest2=$dest_base_dns$dest_tbl2
     #同步基础数据
-    echo "同步表${t}"
+    echo "同步表${t2}"
     if [ $debug = "true" ]
     then
         $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print --where "${where}"  $src2 $dest2
