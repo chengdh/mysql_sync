@@ -27,7 +27,7 @@ syn_tables_1=(ep epstat alm gps)
 for t in ${syn_tables_1[@]}
 do
     src_tbl=",t=${t}"
-    desc_tbl=",t=gis_${t}"
+    dest_tbl=",t=gis_${t}"
     src=$src_base_dns$src_tbl
     dest=$dest_base_dns$dest_tbl
     #同步基础数据
@@ -57,5 +57,4 @@ do
         $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print  --where "${where}" --execute $src $dest
     fi
 done
-e
 echo "-----------------------------------------------运行结束-----------------------------------------------"
