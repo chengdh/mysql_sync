@@ -42,19 +42,19 @@ done
 
 syn_tables_2=(gis_ep_photo gis_ep_upgrade gis_epdata)
 
-for t in ${syn_tables_2[@]}
+for t2 in ${syn_tables_2[@]}
 do
-    src_tbl=",t=${t}"
-    desc_tbl=",t=${t}"
-    src=$src_base_dns$src_tbl
-    dest=$dest_base_dns$dest_tbl
+    src_tbl2=",t=${t2}"
+    desc_tbl2=",t=${t2}"
+    src2=$src_base_dns$src_tbl2
+    dest2=$dest_base_dns$dest_tbl2
     #同步基础数据
     echo "同步表${t}"
     if [ $debug = "true" ]
     then
-        $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print --where "${where}"  $src $dest
+        $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print --where "${where}"  $src2 $dest2
     else
-        $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print  --where "${where}" --execute $src $dest
+        $script_dir/percona-toolkit-2.1.4/bin/pt-table-sync --print  --where "${where}" --execute $src2 $dest2
     fi
 done
 echo "-----------------------------------------------运行结束-----------------------------------------------"
