@@ -22,7 +22,7 @@ src_base_dns="h=${src_host},D=${src_db_name},u=${src_user},p=${src_pwd},A=utf8"
 #目的DNS
 dest_base_dns="h=${dest_host},D=${dest_db_name},u=${dest_user},p=${dest_pwd},A=utf8"
 
-syn_tables_1=(ep epstat alm gps)
+syn_tables_1=(ep epstat alm)
 
 for t in ${syn_tables_1[@]}
 do
